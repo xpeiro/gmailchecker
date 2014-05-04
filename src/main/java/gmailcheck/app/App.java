@@ -3,7 +3,7 @@ package gmailcheck.app;
 import javax.mail.*;
 import javax.mail.internet.*;
 import java.util.*;
-import javafx.scene.media.AudioClip;
+import javax.sound.sampled.*;
 
 public class App {
 	public static void main(String[] args) {
@@ -34,9 +34,12 @@ public class App {
 					if (contador < folder.getMessageCount()) {
 						// Get embedded sound and play
 						App ap = new App();
-						AudioClip clip = new AudioClip(ap.getClass()
-								.getResource("notify.wav").toString());
-						clip.play();
+						AudioInputStream audioIn = AudioSystem
+								.getAudioInputStream(ap.getClass().getResource(
+										"notify.wav"));
+						Clip clip = AudioSystem.getClip();
+						clip.open(audioIn);
+						clip.start();
 						// Update Mail Counter
 						contador = folder.getMessageCount();
 						// Show subject/sender of new message and wait for enter
