@@ -16,9 +16,9 @@ Run:
 
 java -jar target/check-0.0.1-jar-with-dependencies.jar gmail password poll_delay(ms)
 
-gmail: gmail account i.e example@gmail.com
+gmail: gmail account e.g. example@gmail.com
 password: gmail password
-poll_delay(ms): time between consecutive checks in miliseconds i.e. 3000 (every 3 seconds).
+poll_delay(ms): time between consecutive checks in miliseconds e.g. 3000 (every 3 seconds).
 
 example:
 
@@ -29,3 +29,5 @@ java -jar target/check-0.0.1-jar-with-dependencies.jar example@gmail.com passwor
 Author: Daniel Peiró
 
 danipeiro@gmail.com
+
+github.com/xpeiro
