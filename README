@@ -1,0 +1,30 @@
+Java Gmail New Mail Poller:
+
+Checks for new mail in a given gmail account with a given poll delay.
+
+Shows New Message subject,sender and date, and plays a notification sound.
+
+Uses JavaMail API: http://www.oracle.com/technetwork/java/javamail/index.html
+
+Instructions:
+
+Build with Maven http://maven.apache.org/ :
+
+$ mvn clean compile assembly:single
+
+Run:
+
+java -jar target/check-0.0.1-jar-with-dependencies.jar gmail password poll_delay(ms)
+
+gmail: gmail account i.e example@gmail.com
+password: gmail password
+poll_delay(ms): time between consecutive checks in miliseconds i.e. 3000 (every 3 seconds).
+
+example:
+
+java -jar target/check-0.0.1-jar-with-dependencies.jar example@gmail.com password 3000
+
+.jar file is portable, may be moved, renamed etc.
+
+Author: Daniel Peiró
+
