@@ -26,6 +26,8 @@ java -jar target/check-0.0.1-jar-with-dependencies.jar example@gmail.com passwor
 
 .jar file is portable, may be moved, renamed etc.
 
+See github.com/xpeiro/scripts/ for mask bash script.
+
 Author: Daniel Peiró
 
 danipeiro@gmail.com
