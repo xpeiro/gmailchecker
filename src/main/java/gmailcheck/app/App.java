@@ -8,12 +8,12 @@ import javax.sound.sampled.*;
 public class App {
 	public static void main(String[] args) {
 		int contador = 0;
-
+		App ap = new App();
 		if (args.length < 3) {
 			System.err.println("Args: email password poll_delay(ms)");
 		} else {
-
-			try {
+		    
+		    try {
 
 				// //New javamail Session
 				Properties props = System.getProperties();
@@ -26,22 +26,24 @@ public class App {
 				Folder folder = store.getFolder("inbox");
 				folder.open(Folder.READ_ONLY);
 				// Set Mail Counter
-				contador = folder.getMessageCount();
+				if (args.length > 3 && (Integer.parseInt(args[3]) <= folder.getMessageCount()) ) {
+					contador = Integer.parseInt(args[3]);
+				} else {
+					contador = folder.getMessageCount();
+				}
+				
 				System.out.println("\n\n\nChecking Mail every " + args[2]
-						+ " ms...\n");
+						+ " ms...\n" + contador);
 				while (true) {
 					// Check if Message Count has increased
 					if (contador < folder.getMessageCount()) {
 						// Get embedded sound and play
-						App ap = new App();
-						AudioInputStream audioIn = AudioSystem
-								.getAudioInputStream(ap.getClass().getResource(
-										"notify.wav"));
+						AudioInputStream audioIn = AudioSystem.getAudioInputStream(ap.getClass().getResource("notify.wav"));
 						Clip clip = AudioSystem.getClip();
 						clip.open(audioIn);
 						clip.start();
 						// Update Mail Counter
-						contador = folder.getMessageCount();
+						contador++;
 						// Show subject/sender of new message and wait for enter
 						// key
 						// stroke.

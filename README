@@ -14,12 +14,12 @@ $ mvn clean compile assembly:single
 
 Run:
 
-java -jar target/check-0.0.1-jar-with-dependencies.jar gmail password poll_delay(ms)
+java -jar target/check-0.0.1-jar-with-dependencies.jar gmail password poll_delay(ms) mailcount
 
 gmail: gmail account e.g. example@gmail.com
 password: gmail password
 poll_delay(ms): time between consecutive checks in miliseconds e.g. 3000 (every 3 seconds).
-
+mailcount (OPTIONAL): Custom current email count. If not specified gets the count at runtime.
 example:
 
 java -jar target/check-0.0.1-jar-with-dependencies.jar example@gmail.com password 3000
